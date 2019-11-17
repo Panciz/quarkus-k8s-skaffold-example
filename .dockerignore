@@ -1,0 +1,7 @@
+*
+!pom.xml
+!mvn-run-dev.sh
+!src/*
+!target/*-runner
+!target/*-runner.jar
+!target/lib/*

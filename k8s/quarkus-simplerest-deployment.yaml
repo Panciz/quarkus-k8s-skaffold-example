@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: quarkus-simplerest-deployment
+spec:
+  # Numero di pods
+  replicas: 1
+  selector:
+    matchLabels:
+      component: simplerest
+  template:
+    metadata:
+      labels:
+        component: simplerest
+    spec:
+      containers:
+        - name: simplerest
+          image: pancix/quarkus-simplerest:latest
+          ports:
+            - containerPort: 8080

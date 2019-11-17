@@ -1,0 +1,15 @@
+#Provde Access ai client pod
+apiVersion: v1
+kind: Service
+metadata:
+  name: quarkus-simplerest-ip-service
+spec:
+  type: ClusterIP
+  # seleziona a chi si rivolge
+  selector:
+    component: simplerest
+  # cosa espone
+  ports:
+    # Nessuna nodePort: non e' accessibile da fuori 
+    - port: 8080
+      targetPort: 8080

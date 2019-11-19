@@ -2,6 +2,7 @@ package org.dpoletti.quarkus.simplerest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -16,8 +17,8 @@ public class Greetings {
     
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    @Path("/bye/")
-    public String bye() {
-        return "bye bye";
+    @Path("{name}")
+    public String helloName(@PathParam(value = "name") String name) {
+        return "hello hello "+name;
     }
 }

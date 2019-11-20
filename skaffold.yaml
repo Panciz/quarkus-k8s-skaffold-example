@@ -1,25 +1,19 @@
 apiVersion: skaffold/v1beta2
 kind: Config
 
-# tutte i build che vogliamo gestire con  il sync
 build:
   local:
-    # non invio a nessun repositori pubblico di immagini
     push: false
-  # array con quelle che vogliamo far gestire a skaffold
   artifacts:
-    - image: pancix/quarkus-simplerest
+    - image: quarkus-simplerest
       context: .
       docker:
         dockerfile: src/main/docker/Dockerfile.dev
-      # quali file mettere in mode 2
       sync:
         '**/*.java': .
   
-# Quale pod gestire con rigenerazione immagine
 deploy:
   kubectl:
-    #attenzione alla chiusura di skaffold saranno distrutti
     manifests:
       - k8s/quarkus-simplerest-deployment.yaml
       - k8s/quarkus-simplerest-ip-service.yaml

@@ -15,6 +15,7 @@ spec:
     spec:
       containers:
         - name: simplerest
-          image: pancix/quarkus-simplerest:latest
+          image: quarkus-simplerest:latest
+          imagePullPolicy: Never
           ports:
             - containerPort: 8080

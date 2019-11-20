@@ -15,10 +15,18 @@ public class Greetings {
         return "hello";
     }
     
-    @GET
+  /*  @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Path("{name}")
     public String helloName(@PathParam(value = "name") String name) {
-        return "hello hello "+name;
+        return "hello "+name;
     }
+    
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    @Path("{name}/{surname}")
+    public String helloName(@PathParam(value = "name") String name,
+                       @PathParam(value = "surname") String surname) {
+       return "hello mr "+name+" "+surname;
+    } */
 }
